@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+
+
+<script>
+
+var mystr = `<div class="col-md-6 col-sm-6 col-xs-12">
+                    <article class="article-style vertical-article">
+                                                <a href="https://itelligencegroup.com/de/portfolio/it-transformation-mit-methode/" class="master-cta">
+                            
+                                                                                                <div class="article-thumbnail article-thumbnail-image-37187">
+                                        <style>.article-thumbnail-image-37187 {
+                                                background-image: url("..images/asfdasdf/asdfaf78/sun.png"); }
+                                        </style>
+                                    </div>
+                                                            
+                            
+                                <h2>IT-Transformation mit Methode</h2>
+                                <p>Merger, Acquisitions, Carve-Out oder Restrukturierung gehören heute zum Wirtschaftsalltag. Für Unternehmen bedeuten solche Transformationsvorhaben erhebliche organisatorische und prozessuale Veränderungen. Insbesondere die Anpassung der IT-Systemlandschaft ist eine erhebliche und komplexe, aber keinesfalls unlösbare Aufgabe ist.</p>
+
+                                                                    <span class="a-look cta">Endecken Sie mit it.transform die Methode zur reibungslosen Transformation Ihrer Daten und Prozesse</span>
+                                
+                                                            </a>
+                                            </article>
+                    <div class="clearfix"></div>
+                </div>
+
+                    </div>
+    </div>
+</section><section class="section-space section-grey-bg home-grey hme-row hme-row-2">
+    <div class="container">
+        <div class="row">
+            
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <article class="article-style vertical-article">
+                                                <a href="http://www.solution4dienstleister.de/" class="master-cta">
+                            
+                                                            <div class="article-thumbnail article-thumbnail-image-37144">
+                                    <style>.article-thumbnail-image-37144 {
+                                            background-image: url(https://itelligencegroup.com/wp-content/usermedia/de_home_teaser-box_presentation_behind_glas.png); }
+                                    </style>
+                                </div>`;
+
+
+
+
+var backgroundImg_regexp = /background-image[\s]*[:]?[\s]*url[\s]*\(["'](.*)["']\)/gi;
+var getFileName_regexp = /\/([.a-z0-9_-]*)[)]?$/gi;
+
+
+console.log(updateImgpath(mystr,"/mohan/"))
+
+function updateImgpath(data,path){
+	var match = null,supstr = data;
+	while(match = backgroundImg_regexp.exec(data))   {
+		if(match.index == backgroundImg_regexp.lastIndex) backgroundImg_regexp.lastIndex++;
+
+		var absolutepath = match[1],
+		filename = (getFileName_regexp.exec(absolutepath)[1]);
+
+		if(!(/http/gi.test(absolutepath))) supstr = supstr.replace(absolutepath,path + filename); 
+	}
+	return supstr;
+}
+
+
+
+
+
+</script>
+
+</head>
+
+<body>
+
+
+
+
+</body>
+</html>
+
